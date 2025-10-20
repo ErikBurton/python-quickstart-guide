@@ -1,7 +1,36 @@
 #  ClydeBank Coffee Shop Simulator 2112
 #  Copyright (C) 2025 ClydeBank Media, All Rights Reserved.
+#  Current day number
+day = 1
+#  Sales list of dictionaries
+# #  sales = [
+# {
+#       "day": 1,
+#       "coffee_inv": 100,
+#       "advertising": "10",
+#       "temp": 68,
+#       "cups_sold": 16
+# },
+# {
+#       "day": 2,
+#       "coffee_inv": 84,
+#       "advertising": "5",
+#       "temp": 78,
+#       "cups_sold": 10
+# },
+# {
+#       "day": 3,
+#       "coffee_inv": 64,
+#       "advertising": "5",
+#       "temp": 78,
+#       "cups_sold": 10
+# },
+# ]
+#  Create an empty sales list
+sales = []
 
-print("ClydeBank Coffee Shop Simulator 2112, Version 1.00")
+#  Print welcome message
+print("\nClydeBank Coffee Shop Simulator 2112, Version 1.00")
 print("Copyright (C) 2025 ClydeBank Media, All Rights Reserved.\n")
 print("Let's collect some information before we start the game.\n")
 
@@ -18,4 +47,4 @@ cup_price = input("What do you want to charge per cup of coffee? ")
 print("\nGreat. Here's what we've collected so far.\n")
 print("Your name is " + name + " and you're opening " + shop_name +
       " Coffee Shop!")
-print("Your first cup of coffee will sell for $" + cup_price + ".\n")
+print("\nYour first cup of coffee will sell for $" + cup_price + ".\n")
