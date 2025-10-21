@@ -46,9 +46,20 @@ print("\nClydeBank Coffee Shop Simulator 2112, Version 1.00")
 print("Copyright (C) 2025 ClydeBank Media, All Rights Reserved.\n")
 print("Let's collect some information before we start the game.\n")
 
-#  Get name and shop name.
-name = input("What is your name? ")
-shop_name = input("What do you want to name your coffee shop? ")
+#  Get name and shop name using the following approach.
+# 1. Set name and shop_name to False
+# 2. Use while not name and shop_name to continue to prompt for a non-empty string.
+
+name = False
+while not name:
+    name = input("What is your name? ")
+
+shop_name = False
+while not shop_name:
+    shop_name = input("What do you want to name your coffee shop? ")
+
+# We have what we need, so let's get started!
+print("\nOK, let's get started. Have fun!")
 
 # The main game loop
 running = True
@@ -69,7 +80,7 @@ while running:
 
     # Get price of a cup of coffee
     print("\nYou can buy advertising to help promote sales.")
-    advertising = input("How much advertising to  you want to buy? (0 for none)? ")
+    advertising = input("How much advertising do you want to buy? (0 for none)? ")
 
     # Convert advertising into a float
     advertising = float(advertising)
