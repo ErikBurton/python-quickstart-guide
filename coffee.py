@@ -76,14 +76,18 @@ while running:
     print("You have enough coffee on hand to make " + str(coffee) + " cups.\n")
 
     # Get the prince of a cup of coffee
-    cup_price = input("What do you want to charge per cup of coffee?")
+    cup_price = input("What do you want to charge per cup of coffee? ")
 
     # Get price of a cup of coffee
     print("\nYou can buy advertising to help promote sales.")
     advertising = input("How much advertising do you want to buy? (0 for none)? ")
 
     # Convert advertising into a float
-    advertising = float(advertising)
+    # If it fails, assign it to 0
+    try:
+        advertising = float(advertising)
+    except ValueError:
+        advertising = 0
 
     # Deduct advertising from cash on hand
     cash -= advertising
