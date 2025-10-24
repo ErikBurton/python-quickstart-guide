@@ -28,4 +28,3 @@ customer = Customer("Kim")
 
 # Display the name in the main scope
 print(customer.name)
-
