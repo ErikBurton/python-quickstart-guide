@@ -12,6 +12,16 @@ class World:
 # Use the class World to crete a world object nameed w
 w = World()
 
+# Define the World class another way
+
+
+class World:
+    # Define our greeting
+    greeting = "Hello, World!"
+
+
+print(World.greeting)
+
 # Define a new class
 
 
@@ -34,5 +44,6 @@ customers = [c1, c2, c3]
 
 # Iterate through list, greet, then display information
 for c in customers:
+    print()
     c.greet()
     print(c.name + " lives in " + c.city + ".")
