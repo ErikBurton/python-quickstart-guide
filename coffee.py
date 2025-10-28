@@ -31,51 +31,66 @@ def convert_to_float(s):
         f = 0
     return f
 
-def get_weather():
-    # Generate a random temperature between 20 and 90
-    # We'll consider seasons later on, but this is good enough for now
-    return randint(20,90)
+def x_of_y(x, y):
+    num_list = []
+    # Return a list of x copies of y
+    for i in range(x):
+        num_list.append(y)
+    return num_list
 
-# Print Welcome message
-welcome()
+class CoffeeShopSimulator:
 
-# Get name and store name
-name = prompt("What is your name?", True)
-shop_name = prompt("What do you want to name your coffee shop?", True)
+    # Minium and maximum temperatures
+    TEMP_MIN = 20
+    TEMP_MAX = 90
 
-# We have what we need, so let's get started!
-print("\nOK, let's get started. Have fun!")
+    
+    def __init__(self, player_name, shop_name):
+        # Set player and coffee shop names
+        self.player_name = player_name
+        self.shop_name = shop_name
 
-# The main game loop
-running = True
-while running:
-    # Display the day and add a "fancy" text effect.
-    print("\n-----| Day " + str(day) + " @ " + shop_name + " |-----")
+        # Current day number
+        self.day = 1
 
-    temperature = get_weather()
+        # Cash on hand at start
+        self.cash = 100.00
 
-    # Display the cash and weather
-    daily_stats(cash, temperature, coffee)
+        # Inventory at start
+        self.coffee_inventory = 100
 
-    # Get the prince of a cup of coffee
-    cup_price = input("What do you want to charge per cup of coffee? ")
+        # Sales list
+        self.sales =[]
 
-    # Get price of a cup of coffee
-    print("\nYou can buy advertising to help promote sales.")
-    advertising = input("How much advertising do you want to buy? (0 for none)? ")
+        # Possible temperatures
+        self.tems = self.make_temp_distribution()
 
-    # Convert advertising into a float
-    # If it fails, assign it to 0
-    try:
-        advertising = float(advertising)
-    except ValueError:
-        advertising = 0
+    def run(self):
+        print("\nOk, let's get started. Have fun!")
 
-    # Deduct advertising from cash on hand
-    cash -= advertising
+        # The main game loop
+        running = True
+        while running:
+            # Display the day and add a "fancy" text effect
+            self.day_header()
 
-    # TODO: Calculate today's performance
-    # TODO: Display today's performance
+            # Get the weather
+            temperature = self.weather
 
-    # Before we loop around, add a day
-    day += 1
+            # Display the cash and weather
+            self.daily_stats(temperature)
+
+            # Get price of a cup of coffee
+            cup_price = float(prompt("What do you want to charge per cup of coffee?"))
+
+            # Get advertising spend
+            print("You can buy advertising to help promote sales.")
+            advertising = prompt("How much to you want to spend on advertising (0 for none)?" False)
+
+            # Convert advertising into a float
+            advertising = convert_to_float(advertising)
+
+            # Deduct advertising from cash on hand
+            self.cash -= advertising
+
+            # Simulate today's sales
