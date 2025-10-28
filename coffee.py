@@ -1,45 +1,9 @@
 #  ClydeBank Coffee Shop Simulator 2112
 #  Copyright (C) 2025 ClydeBank Media, All Rights Reserved.
 
-# Import items from the random module to generate weather
-from random import seed
+# Import the random module
 from random import randint
 
-#  Current day number
-day = 1
-
-# Starting cash on hand
-cash = 100.00
-
-# Coffee on hand (cups)
-coffee = 100
-
-#  Sales list of dictionaries
-# #  sales = [
-# {
-#       "day": 1,
-#       "coffee_inv": 100,
-#       "advertising": "10",
-#       "temp": 68,
-#       "cups_sold": 16
-# },
-# {
-#       "day": 2,
-#       "coffee_inv": 84,
-#       "advertising": "5",
-#       "temp": 78,
-#       "cups_sold": 10
-# },
-# {
-#       "day": 3,
-#       "coffee_inv": 64,
-#       "advertising": "5",
-#       "temp": 78,
-#       "cups_sold": 10
-# },
-# ]
-#  Create an empty sales list
-sales = []
 
 #  Print welcome message
 def welcome():
@@ -47,9 +11,6 @@ def welcome():
     print("Copyright (C) 2025 ClydeBank Media, All Rights Reserved.\n")
     print("Let's collect some information before we start the game.\n")
 
-#  Get name and shop name using the following approach.
-# 1. Set name and shop_name to False
-# 2. Use while not name and shop_name to continue to prompt for a non-empty string.
 
 def prompt(display="Please input a string", require=True):
 
@@ -61,9 +22,6 @@ def prompt(display="Please input a string", require=True):
         s = input(display + " ")
     return s
 
-def daily_stats(cash_on_hand, weather_temp, coffee_inventory):
-    print("You have $" + str(cash_on_hand) + " cash on hand and the temperature is " + str(weather_temp) + ".")
-    print("You have enough coffee on hand to make " + str(coffee_inventory) + " cups.\n")
 
 def convert_to_float(s):
     # If convervion fails, assign 0 to i
