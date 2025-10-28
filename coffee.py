@@ -101,4 +101,24 @@ class CoffeeShopSimulator:
             print("You sold " + str(cups_sold) + " cups of coffee today.")
             print("You made $" + str(gross_profit) + ".")
 
-            
+            # Add the profit to coffee
+            self.cash += gross_profit
+
+            # Subtract inventory
+            self.coffee_inventory -= cups_sold
+
+            # Before we loop around, add a day
+            self.incremeent_day()
+        def simulate(self, temperature, advertising, cup_price):
+            # Find out how many cups were sold
+            cups_sold = self.daily_sales(temperature, advertising)
+
+            # Save the sales data for today
+            self.sales.append({
+                "day": self.day,
+                "coffee_inv": self.coffee_inventory,
+                "advertising": advertising,
+                "temp": temperature,
+                "cup_price": cup_price,
+                "cups_sold": cups_sold
+            })
