@@ -94,3 +94,11 @@ class CoffeeShopSimulator:
             self.cash -= advertising
 
             # Simulate today's sales
+            cups_sold = self.simulate(temperature, advertising, cup_price)
+            gross_profit = cups_sold * cup_price
+
+            # Display the results
+            print("You sold " + str(cups_sold) + " cups of coffee today.")
+            print("You made $" + str(gross_profit) + ".")
+
+            
