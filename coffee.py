@@ -122,3 +122,34 @@ class CoffeeShopSimulator:
                 "cup_price": cup_price,
                 "cups_sold": cups_sold
             })
+
+            # We technically don't need this, but why make the next step
+            # read from the sales list when we have the data right here
+            return cups_sold
+        
+        
+        def make_temp_distribution(self):
+            # This is not a good bell curve, but it will do for now
+            # until we get to more advanced mathematics
+            temps = []
+
+            # First, find the average between TEMP_MIN and TEMP_MAX
+            avg = (self.TEMP_MIN + self.TEMP_MAX) / 2
+            # Find the distance between TEMP_MAX and the average
+            max_dist_from_avg = self.TEMP_MAX - avg
+
+            # Loop through all possible temperatures
+            for i in range(self.TEMP_MIN, self.TEMP_MAX):
+                # How far away is the temperture from average?
+                # abs() gives us absolute value
+                dist_from_avg = abs(avg - i)
+                # How far away is the dist_from_avg from the maximum?
+                # This will be lower for temps at extremes
+                dist_from_max_dist = max_dist_from_avg - dist_from_avg
+                # If the value is zero, make it one
+                if dist_from_max_dist ==0:
+                    dist_from_max_dist = 1
+                # Append the output of x_of_y to temps
+                for t in x_of_y(int(dist_from_max_dist), i):
+                    temps.append(t)
+                return temps
